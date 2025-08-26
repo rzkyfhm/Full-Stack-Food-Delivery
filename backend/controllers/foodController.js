@@ -1,4 +1,5 @@
 import foodModel from "../models/foodModels.js";
+import fs from "fs";
 
 const addFood = async (req, res) => {
   try {
@@ -42,7 +43,7 @@ const removeFood = async (req, res) => {
         res.json({success:true,message:"Food Remove"})
     } catch (error) {
         console.log(error);
-        res.json({success:false, message:"Error"})
+        res.json({success:false, message:"Error", error: error.message})
     }
 }
 
